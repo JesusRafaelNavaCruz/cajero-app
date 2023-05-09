@@ -12,7 +12,7 @@
         </b-col>
       </b-row>
       <b-row align-h="center">
-        <b-col v-for="(operation, index) in operations" :key="index">
+        <b-col cols="12" sm="12" md="3" v-for="(operation, index) in operations" :key="index">
             <ButtonComponent :label="operation.name" :route="operation.route" />
         </b-col>
       </b-row>
