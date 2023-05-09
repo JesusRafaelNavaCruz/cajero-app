@@ -1,22 +1,38 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import DashboardView from '../views/DashboardView.vue';
+import BalanceView from '../views/BalanceView.vue';
+import DepositView from '../views/DepositView.vue';
+import WithdrawView from '../views/WithdrawView.vue';
+import HistoryView from '../views/HistoryView.vue';
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Dashboard',
+    component: DashboardView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/balance',
+    name: 'Balance',
+    component: BalanceView
+  },
+  {
+    path: '/deposit',
+    name: 'Deposit',
+    component: DepositView
+  },
+  {
+    path: '/withdraw',
+    name: 'Withdraw',
+    component: WithdrawView
+  },
+  {
+    path: '/history',
+    name: 'History',
+    component: HistoryView,
   }
 ]
 
