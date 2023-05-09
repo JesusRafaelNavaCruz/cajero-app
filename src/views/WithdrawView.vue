@@ -62,10 +62,15 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["withdraw"]),
+    ...mapActions(["withdraw", "saveHistory"]),
     withdrawAmount() {
       if (this.amount > 0) {
         this.withdraw(this.amount);
+        const trans = {
+          amount: this.amount,
+          action: 'Retiro'
+        };
+        this.saveHistory(trans);
       }
     },
   },

@@ -7,9 +7,7 @@ export default new Vuex.Store({
   state: {
     balance: 0,
     user: {},
-    history: [
-      {action: '', amount: 0}
-    ],    
+    history: [],    
   },
   getters: {
     getBalance: (state) => state.balance,
@@ -18,7 +16,7 @@ export default new Vuex.Store({
   },
   mutations: {
     saveHistory: (state, payload) => {
-      state.history = state.push(payload);
+      state.history.push(payload);
     },
     deposit: (state, payload) => {
       state.balance = parseInt(state.balance) + parseInt(payload);
@@ -34,6 +32,9 @@ export default new Vuex.Store({
     withdraw: ({commit}, payload) => {
       commit('withdraw', payload);
     },
+    saveHistory: ({commit}, payload) =>{
+      commit('saveHistory', payload);
+    }
   },
   modules: {
   }
