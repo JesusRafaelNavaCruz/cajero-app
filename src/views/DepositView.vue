@@ -12,7 +12,7 @@
         <b-col cols="12" md="4" sm="12">
           <b-form-input v-model="amount"></b-form-input>
         </b-col>
-        <b-col cols="12" md="2" sm="12">
+        <b-col cols="12" md="1" sm="12">
           <b-button variant="success" @click="depositAmount"
             >Depositar</b-button
           >
@@ -30,8 +30,7 @@ import BackBtn from "@/components/BackBtn.vue";
 export default {
   data() {
     return {
-      amount: 0,
-      
+      amount: null,
     };
   },
   components: {
@@ -51,10 +50,11 @@ export default {
         this.deposit(this.amount);
         const trans = {
           amount: this.amount,
-          action: 'Deposito'
+          action: 'Deposito',
+          date: new Date(),
         };
         this.saveHistory(trans);
-        this.amount = 0;
+        this.amount = null;
       }
     },
   },

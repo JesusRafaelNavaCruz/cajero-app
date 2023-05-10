@@ -1,0 +1,27 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Jesus Rafael",
+            "firstLastname": "Nava",
+            "secondLastname": "Cruz",
+            "bankInformation": [
+                {
+                    "account": 111999000123,
+                    "amount": 800,
+                    "nip": 1998,
+                    "bin": 4092665210905028
+                }
+            ]
+
+        }
+    ],
+    "transactions": [
+        {
+            "userId": 1,
+            "type": "withdraw",
+            "amount": 500,
+            "date": ""
+        }
+    ]
+}

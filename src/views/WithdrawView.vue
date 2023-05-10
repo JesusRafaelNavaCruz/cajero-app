@@ -1,14 +1,7 @@
 <template>
   <div>
     <b-container>
-      <b-row class="py-5">
-        <b-col>
-          <router-link to="/">
-            <b-icon icon="arrow-left"></b-icon>
-            Regresar
-          </router-link>
-        </b-col>
-      </b-row>
+      <BackBtn/>
       <b-row align-h="center" class="py-2">
         <b-col cols="12" md="6" sm="12" class="text-center">
           <h1>Retirar</h1>
@@ -22,7 +15,7 @@
             No cuentas con saldo suficiente para retirar
           </b-form-invalid-feedback>
         </b-col>
-        <b-col cols="12" md="2" sm="12">
+        <b-col cols="12" md="1" sm="12">
           <b-button variant="success" @click="withdrawAmount" :disabled="isValid || amount === 0 || amount === ''">Retirar</b-button>
         </b-col>
       </b-row>
@@ -33,16 +26,18 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import BalanceComponent from "@/components/BalanceComponent.vue";
+import BackBtn from "@/components/BackBtn.vue";
 
 export default {
   data() {
     return {
-      amount: 0,
+      amount: null,
       error: "",
     };
   },
   components: {
     BalanceComponent,
+    BackBtn,
   },
   computed: {
     ...mapGetters(["getBalance"]),
@@ -71,6 +66,7 @@ export default {
           action: 'Retiro'
         };
         this.saveHistory(trans);
+        this.amount = null;
       }
     },
   },

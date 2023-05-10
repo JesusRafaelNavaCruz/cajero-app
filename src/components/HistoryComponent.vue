@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-container>
-      <b-row align-h="center">
+      <b-row align-h="center" v-if="Object.keys(movements).length > 0">
         <b-col cols="12" sm="12" md="4">
           <ul>
             <li v-for="(move, index) in movements" :key="index">
@@ -11,8 +11,9 @@
                   <b-icon class="h3 mb-0" icon="box-arrow-up" v-else></b-icon>
                 </div>
                 <div class="label">
+                    <p class="mb-0 text-center">{{ moment(move.date).format('LLL') }}</p>
                     <p class="mb-0 text-center" v-if="move.action === 'Deposito'">Deposito</p>
-                    <p class="mb-0 text-center" v-else>Retiro</p>
+                    <p class="mb-0 text-center" v-else>Retiro</p>                    
                 </div>
                 <div class="amount">
                     <p :class="`${move.color} text-center mb-0`">{{ move.amount }}</p>
@@ -22,6 +23,12 @@
           </ul>
         </b-col>
       </b-row>
+
+      <v-row align-h="center" class="mt-5 " v-else>
+        <v-col cols="12" sm="12" md="6">
+          <h2 class="text-center">Información no disponible</h2>
+        </v-col>
+      </v-row>
     </b-container>
   </div>
 </template>
@@ -36,6 +43,7 @@ export default {
                 action: move.action,
                 amount: move.action === 'Deposito' ? `+ $ ${move.amount}` : `- $ ${move.amount}`,
                 color: move.action === 'Deposito' ? 'text-success' : 'text-danger',
+                date: move.date,
             }
           })
         }
@@ -44,9 +52,10 @@ export default {
 </script>
 <style scoped>
 ul {
-  height: 500px;
+  max-height: 500px;
   overflow: scroll;
   overflow-x: hidden;
+  padding: 0;
 }
 li {
   list-style: none;
