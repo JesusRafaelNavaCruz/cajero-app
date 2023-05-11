@@ -1,12 +1,4 @@
 # cajero-app
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for d# cajero-app
-
 Aplicativo web con funciones de un Cajero Automatico, creado con VueJs en su version 2
 
 # Tecnologías usadas
