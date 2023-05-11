@@ -1,27 +1,42 @@
 {
-    "users": [
+  "users": [
+    {
+      "id": 1,
+      "name": "Jonh",
+      "firstLastname": "Doe",
+      "secondLastname": "Red",
+      "bankInformation": {
+        "account": 111999000124,
+        "amount": 1500,
+        "nip": 6199,
+        "bin": 4092665210909012
+      },
+      "transactions": [
         {
-            "id": 1,
-            "name": "Jesus Rafael",
-            "firstLastname": "Nava",
-            "secondLastname": "Cruz",
-            "bankInformation": [
-                {
-                    "account": 111999000123,
-                    "amount": 800,
-                    "nip": 1998,
-                    "bin": 4092665210905028
-                }
-            ]
-
-        }
-    ],
-    "transactions": [
+          "id": 1,
+          "amount": 1000,
+          "action": "Deposito",
+          "date": "2023-04-09T17:00:00.327Z"
+        },
         {
-            "userId": 1,
-            "type": "withdraw",
-            "amount": 500,
-            "date": ""
+          "id": 2,
+          "amount": 500,
+          "action": "Retiro",
+          "date": "2023-05-11T17:00:00.327Z"
+        },
+        {
+          "id": 3,
+          "amount": 1000,
+          "action": "Deposito",
+          "date": "2023-05-15T17:00:00.327Z"
+        },
+        {
+          "id": 23,
+          "amount": 500,
+          "action": "Deposito",
+          "date": "2023-05-11T16:23:13.241Z"
         }
-    ]
+      ]
+    }
+  ]
 }

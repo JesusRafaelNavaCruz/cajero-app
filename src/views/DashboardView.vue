@@ -3,7 +3,8 @@
     <b-container>
         <b-row class="py-5">
             <b-col cols="12" sm="12" md="6">
-                <h3>Bienvenido Jesus Nava</h3>
+                <h3>Hola, {{ userName }}</h3>
+                <p>Bienvenido a Bancomercial</p>
             </b-col>
         </b-row>
       <b-row class="mb-3">
@@ -20,6 +21,7 @@
   </div>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import ButtonComponent from '../components/ButtonComponent.vue';
 export default {
   data() {
@@ -34,6 +36,29 @@ export default {
   },
   components: {
     ButtonComponent,
-  }
+  },
+  computed: {
+    ...mapGetters(['getUser']),
+    userName() {
+      return `${this.getUser.name} ${this.getUser.firstLastname} ${this.getUser.secondLastname}`;
+    },
+  },
+  created() {
+    this.getUserInfo();
+  },
+  methods: {
+    ...mapActions(['saveUser']),
+    getUserInfo(){
+      const reqHeaders = {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json',
+        }
+      }
+      return fetch('http://localhost:3000/users/1', reqHeaders)
+        .then((response) => response.json())
+        .then((data) => this.saveUser(data));
+    }
+  },
 };
 </script>

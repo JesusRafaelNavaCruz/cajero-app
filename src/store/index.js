@@ -15,6 +15,11 @@ export default new Vuex.Store({
     getHistory: (state) => state.history,
   },
   mutations: {
+    saveUser: (state, payload) => {
+      state.user = payload;
+      state.balance = payload.bankInformation.amount;
+      state.history = payload.transactions;
+    },
     saveHistory: (state, payload) => {
       state.history.push(payload);
     },
@@ -26,6 +31,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    saveUser: ({commit}, payload) => {
+      commit('saveUser', payload);
+    },
     deposit: ({commit}, payload) => {
       commit('deposit', payload);
     },

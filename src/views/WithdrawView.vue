@@ -10,7 +10,7 @@
       </b-row>
       <b-row align-h="center" class="mb-5">
         <b-col cols="12" md="4" sm="12">
-          <b-form-input v-model="amount" :state="error"></b-form-input>
+          <b-form-input v-model.number="amount" :state="error" placeholder="Ingrese el monto deseado"></b-form-input>
           <b-form-invalid-feedback id="input-live-feedback">
             No cuentas con saldo suficiente para retirar
           </b-form-invalid-feedback>
